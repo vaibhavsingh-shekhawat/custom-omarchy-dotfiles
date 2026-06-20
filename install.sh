@@ -17,7 +17,7 @@ fi
 
 # Install config files
 echo "Installing configs..."
-for dir in "$REPO_DIR/.config/"*/; do
+for dir in "$REPO_DIR/config/"*/; do
   dirname="$(basename "$dir")"
   target="$HOME/.config/$dirname"
   if [ -e "$target" ] && [ ! -L "$target" ]; then
@@ -30,16 +30,17 @@ for dir in "$REPO_DIR/.config/"*/; do
   echo "  ✓ .config/$dirname"
 done
 
-for file in "$REPO_DIR/.config"/*; do
+for file in "$REPO_DIR/config"/*; do
   [ -f "$file" ] || continue
   filename="$(basename "$file")"
+  [[ $filename == "setup.sh" ]] && continue
   target="$HOME/.config/$filename"
   if [ -e "$target" ]; then
     mkdir -p "$BACKUP_DIR/.config"
     mv "$target" "$BACKUP_DIR/.config/$filename"
   fi
   cp "$file" "$target"
-  echo "  ✓ .config/$filename"
+  echo "  ✓ $filename"
 done
 
 # Copy wallpapers

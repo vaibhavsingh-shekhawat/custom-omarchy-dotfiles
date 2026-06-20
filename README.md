@@ -2,38 +2,33 @@
 
 Warm amber-toned desktop config for [Omarchy](https://omarchy.org/) (Arch Linux + Hyprland).
 
-## Preview
-
-![Wallpaper](wallpapers/emberglow-default.jpg)
-
 ## Structure
 
 ```
-.
-├── .config/          → ~/.config/  (Hyprland, Waybar, etc.)
-├── wallpapers/       → ~/Pictures/Wallpapers/
-├── themes/           → Theme palette files (colors, btop, neovim)
-├── scripts/          → Utility scripts
-├── install.sh        → One-command installer
+├── config/          → ~/.config/  (Hyprland, Waybar, Neovim, etc.)
+├── themes/          → Theme palette files
+├── wallpapers/      → Wallpapers
+├── scripts/         → Utility scripts
+├── install.sh       → One-command installer
 └── README.md
 ```
 
-## What's Included
+## What's Inside
 
-| App | Config |
-|-----|--------|
-| Hyprland | window manager, keybindings, animations |
-| Waybar | status bar with weather, system stats |
-| Walker | app launcher |
-| Alacritty / Kitty / Ghostty / Foot | terminals |
-| Mako | notifications |
-| Btop | system monitor |
-| Fastfetch | system info |
-| Neovim | editor config |
-| Tmux | terminal multiplexer |
-| SwayOSD | on-screen display |
-| Starship | shell prompt |
-| GTK | theme integration |
+| Component | Config |
+|-----------|--------|
+| Hyprland | WM, keybindings, animations, window rules |
+| Waybar | Status bar with weather & system stats |
+| Walker | App launcher |
+| Alacritty / Kitty / Ghostty / Foot | Terminals |
+| Mako | Notifications |
+| Btop | System monitor |
+| Fastfetch | System info |
+| Neovim | Editor |
+| Tmux | Terminal multiplexer |
+| SwayOSD | On-screen display |
+| Starship | Shell prompt |
+| GTK | Theme integration |
 
 ## Quick Install
 
@@ -44,15 +39,8 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Or manually symlink:
-
-```bash
-stow -t ~ .
-```
-
-## Theme: Emberglow
+## Theme Colors
 
 - **Background**: `#1a1410` (deep warm charcoal)
 - **Foreground**: `#dbcab4` (warm cream)
 - **Accent**: `#e8a84c` (amber gold)
-- **Style**: warm, cozy, sunset-inspired
