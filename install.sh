@@ -10,60 +10,56 @@ echo "  for Omarchy / Arch + Hyprland"
 echo "=============================="
 echo ""
 
-# Check if omarchy is present
 if ! command -v omarchy &>/dev/null; then
-  echo "⚠ Omarchy not detected. This dotfiles set is designed for Omarchy."
-  echo "  Proceeding anyway..."
+  echo "⚠ Omarchy not detected — designed for Omarchy but proceeding..."
   echo ""
 fi
 
-# Link all config files
-echo "Installing config files..."
+# Install config files
+echo "Installing configs..."
 for dir in "$REPO_DIR/.config/"*/; do
   dirname="$(basename "$dir")"
   target="$HOME/.config/$dirname"
-
   if [ -e "$target" ] && [ ! -L "$target" ]; then
     echo "  Backing up $target → $BACKUP_DIR/.config/$dirname"
     mkdir -p "$BACKUP_DIR/.config"
     mv "$target" "$BACKUP_DIR/.config/$dirname"
   fi
-
   mkdir -p "$HOME/.config"
   cp -r "$dir" "$target"
-  echo "  ✓ $dirname"
+  echo "  ✓ .config/$dirname"
 done
 
-# Handle files in .config root
 for file in "$REPO_DIR/.config"/*; do
   [ -f "$file" ] || continue
   filename="$(basename "$file")"
   target="$HOME/.config/$filename"
-
   if [ -e "$target" ]; then
     mkdir -p "$BACKUP_DIR/.config"
     mv "$target" "$BACKUP_DIR/.config/$filename"
   fi
-
   cp "$file" "$target"
-  echo "  ✓ $filename"
+  echo "  ✓ .config/$filename"
 done
 
+# Copy wallpapers
 echo ""
+echo "Installing wallpapers..."
+mkdir -p "$HOME/Pictures/Wallpapers"
+cp -r "$REPO_DIR/wallpapers/"* "$HOME/Pictures/Wallpapers/" 2>/dev/null && echo "  ✓ wallpapers"
 
-# Set the theme
+# Apply theme
+echo ""
 if command -v omarchy &>/dev/null; then
   echo "Applying Emberglow theme..."
-  omarchy theme set emberglow 2>/dev/null || echo "  → Run 'omarchy theme set emberglow' manually"
+  omarchy theme set emberglow 2>/dev/null || echo "  → Run: omarchy theme set emberglow"
 else
-  echo "→ To apply theme: copy omarchy/themes/emberglow to ~/.config/omarchy/themes/"
-  echo "  Then run: omarchy theme set emberglow"
+  echo "→ Apply theme: omarchy theme set emberglow"
 fi
 
 echo ""
 echo "=============================="
-echo "  ✅ Done!"
-echo ""
-echo "  Backup saved at: $BACKUP_DIR"
-echo "  Reboot or restart Hyprland to see changes."
+echo "  Done!"
+echo "  Backup: $BACKUP_DIR"
+echo "  Restart Hyprland or reboot."
 echo "=============================="
