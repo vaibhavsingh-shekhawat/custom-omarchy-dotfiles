@@ -1,0 +1,22 @@
+return {
+  "Emberglow",
+  {
+    background = "#1a1410",
+    foreground = "#dbcab4",
+    accent = "#e8a84c",
+    red = "#e85d4c",
+    green = "#7cb87a",
+    yellow = "#e8a84c",
+    blue = "#6a9fb5",
+    magenta = "#c77dbb",
+    cyan = "#6dac9a",
+    white = "#dbcab4",
+    bright_red = "#ff7a6a",
+    bright_green = "#9ad498",
+    bright_yellow = "#ffc06a",
+    bright_blue = "#88bdd4",
+    bright_magenta = "#e09bd4",
+    bright_cyan = "#8bc8b4",
+    bright_white = "#ede0cc",
+  },
+}
