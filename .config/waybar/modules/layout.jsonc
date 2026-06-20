@@ -1,0 +1,20 @@
+{
+  "modules-left": [
+    "custom/omarchy",
+    "clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "custom/updatespacman",
+    "custom/update"
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "temperature",
+    "network",
+    "disk",
+    "cpu",
+    "pulseaudio",
+    "battery"
+  ]
+}

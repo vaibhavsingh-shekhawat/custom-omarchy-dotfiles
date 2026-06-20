@@ -1,0 +1,1 @@
+/home/vaibhav/.config/omarchy/current/theme/neovim.lua
